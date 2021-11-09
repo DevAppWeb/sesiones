@@ -1,9 +1,6 @@
-
 <?php
-
 session_start();
 define('ERROR_MESSAGE', "Credenciales Incorrectas");
-$error = false;
 
 if (isset($_SESSION['username'])) {
     if (filter_input(INPUT_POST, 'botonenviologout')) {
@@ -24,7 +21,7 @@ if (isset($_SESSION['username'])) {
             $_SESSION['username'] = $nombre;
             include 'private.php';
         } else {
-            $error = true;
+            $invalidAccess = true;
             include 'formlogin.php';
         }
     }
